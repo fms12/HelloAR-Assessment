@@ -1,0 +1,13 @@
+
+Todo:
+  ☐ Login page which will take a phone number.
+  ☐ Verify OTP screen which will verify the phone number. 
+  ☐ Resend OTP
+  ☐ Songs Listing page.
+  ☐ Add a Song option to add a song to the list and the newly added content should be playable.
+  ☐ Pagination (optional- nice to have)
+  ☐ Player should play the content added. Player should have the below features and it should be working functionally.
+      ☐ Play/Pause button 
+      ☐ Previous/Next song buttons
+      ☐ Draggable seek bar to seek through the song.
+  ☐ Logout
