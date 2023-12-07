@@ -33,7 +33,7 @@ function SongsContainer() {
       </div>
 
       {currentSongs.map((song) => (
-        <SongList song={song} />
+        <SongList song={song}  key = {song.id}/>
       ))}
       {/*  with buttons and  */}
       {/* <div className="pagination flex justify-center items-center mt-4">
@@ -53,7 +53,7 @@ function SongsContainer() {
           Next
         </button>
       </div> */}
-      
+
       {/* Using the MUI component */}
       <Stack spacing={2} direction="row" justifyContent="center" mt={4}>
         <Pagination

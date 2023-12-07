@@ -1,8 +1,8 @@
-import React from "react";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 function SongList({ song }) {
+
   return (
     <>
       <div className="md:w-[calc(100%-256px)] h-[70px] flex justify-between items-center px-4 box-content mb-2 mt-2">

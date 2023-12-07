@@ -6,7 +6,7 @@ const addSongSlice = createSlice({
   reducers: {
     addSong: (state, action) => {
       const newSong = {
-        id: new Date().toISOString(),
+        id: new Date().toISOString().slice(0,10),
         name: action.payload.name,
         link: action.payload.link,
         source: action.payload.source,
