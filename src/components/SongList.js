@@ -1,8 +1,13 @@
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useDispatch } from "react-redux";
+import { playSong } from "../utils/states/playerSlice";
 
 function SongList({ song }) {
-
+  const dispatch = useDispatch();
+  const handlePlayer =()=>{
+    dispatch(playSong(song))
+  }
   return (
     <>
       <div className="md:w-[calc(100%-256px)] h-[70px] flex justify-between items-center px-4 box-content mb-2 mt-2">
@@ -26,6 +31,7 @@ function SongList({ song }) {
                 width: "40px",
                 height: "40px",
               }}
+              onClick={handlePlayer}
             />
           </div>
           <div className="cursor-pointer">
