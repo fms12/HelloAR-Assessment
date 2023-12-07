@@ -111,6 +111,7 @@ function AddSongForm() {
         <div className={`flex justify-between ${songThumbnail && `border border-black`} mt-2 items-center mb-2`}>
         <label>
           <img src={songThumbnail} alt="" />
+          
         </label>
         { songThumbnail&& <Delete  onClick={()=> setSongThumbnail(null)} sx={{
           cursor:"pointer"
