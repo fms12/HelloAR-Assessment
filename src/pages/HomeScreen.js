@@ -1,9 +1,17 @@
-import React from 'react'
-
+import React from "react";
+import Nav from "../components/Nav";
+import Sidebar from "../components/Sidebar";
+import SongsContainer from "../components/SongsContainer";
 function HomeScreen() {
   return (
-    <div>HomeScreen</div>
-  )
+    <>
+      <div className="flex h-screen w-screen">
+        <Sidebar />
+        <Nav />
+        <SongsContainer />
+      </div>
+    </>
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;

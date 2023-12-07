@@ -1,9 +1,12 @@
 import React from 'react'
+import SignIn from '../components/Login/SignIn'
 
-function LoginPage() {
+function LoginScreen() {
   return (
-    <div>LoginPage</div>
+    <div>
+      <SignIn />
+    </div>
   )
 }
 
-export default LoginPage
+export default LoginScreen
