@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../../utils/states/handlePopupSlice";
 import { addSong } from "../../utils/states/addSongSlice";
+import Delete from "@mui/icons-material/Delete";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -32,17 +33,18 @@ function AddSongForm() {
   const handleAddSong = (e) => {
     dispatch(
       addSong({
-      name: songName,
-      link: songLink,
-      source: songSource,
-      image: songThumbnail,
-    }));
+        name: songName,
+        link: songLink,
+        source: songSource,
+        image: songThumbnail,
+      })
+    );
 
-    dispatch(closeMenu())
+    dispatch(closeMenu());
   };
 
   return (
-    <div className="w-[100%] h-[75%] flex flex-col justify-between p-[10px]">
+    <div className="w-[100%] h-[89%] flex flex-col justify-between p-[5px]">
       <div className="songname">
         <label className=" text-gray-700 font-normal leading-6">
           Song Name
@@ -84,10 +86,6 @@ function AddSongForm() {
       </div>
 
       <div className="thumbnail">
-        {/* <label>
-                  <img src="" alt="" />
-                  Click to upload profile thumbnail
-                </label> */}
         <Button
           component="label"
           sx={{
@@ -110,6 +108,14 @@ function AddSongForm() {
           Click to Upload Profile Thumbnail
           <VisuallyHiddenInput type="file" />
         </Button>
+        <div className={`flex justify-between ${songThumbnail && `border border-black`} mt-2 items-center mb-2`}>
+        <label>
+          <img src={songThumbnail} alt="" />
+        </label>
+        { songThumbnail&& <Delete  onClick={()=> setSongThumbnail(null)} sx={{
+          cursor:"pointer"
+        }}/>}
+        </div>
       </div>
       <p className="text-sm font-normal text-gray-500">
         *Image has to be of aspect ratio 1:1 with a size of 3000 pixels x 3000

@@ -37,7 +37,7 @@ function AddSong() {
       >
         <Box sx={style}>
           <div className="h-[100%] w-[100%] flex flex-col justify-between items-center">
-            <div className="w-[100%] h-[10%] flex justify-between items-center p-[10px]">
+            <div className="w-[100%] h-[5%] flex justify-between items-center p-[4px]">
               <h1 className="text-xl font-bold">Add Song</h1>
               <CloseIcon
                 onClick={handleClose}
@@ -49,7 +49,7 @@ function AddSong() {
               />
             </div>
 
-            <div className="w-[100%] h-[1px] bg-[#F0F0F0] m-auto p-0"></div>
+            <div className="w-[100%] h-[1px] bg-[#F0F0F0] p-0"></div>
             <AddSongForm />
            
           </div>
