@@ -34,7 +34,7 @@ function SongsContainer() {
       </div>
 
       {currentSongs.map((song) => (
-        <SongList song={song}  key = {song.id}/>
+        <SongList song={song}  key = {song?.id}/>
       ))}
       {/*  with buttons and  */}
       {/* <div className="pagination flex justify-center items-center mt-4">

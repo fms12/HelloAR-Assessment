@@ -12,15 +12,15 @@ function SongList({ song }) {
     <>
       <div className="md:w-[calc(100%-256px)] h-[70px] flex justify-between items-center px-4 box-content mb-2 mt-2">
         <div className="flex items-center justify-start w-[30%]">
-          <img src={song.image} alt={song.name} className="w-[72px] h-[72px]" />
-          <span className="text-[14px] ml-2">{song.name}</span>
+          <img src={song?.image} alt={song?.name} className="w-[72px] h-[72px]" />
+          <span className="text-[14px] ml-2">{song?.name}</span>
         </div>
         <div className="flex w-[30%] justify-between">
           <div className="">
-            <div className="font-normal">{song.source}</div>
+            <div className="font-normal">{song?.source}</div>
           </div>
           <div className="">
-            <div className="font-normal">{song.id}</div>
+            <div className="font-normal">{song?.id}</div>
           </div>
         </div>
         <div className="w-[40px] h-[26px] flex ">

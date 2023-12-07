@@ -1,4 +1,3 @@
-import React from 'react'
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
