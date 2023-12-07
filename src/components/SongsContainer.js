@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SongList from "./SongList";
 import { useSelector } from "react-redux";
 import { Pagination, Stack } from "@mui/material";
+import SongPlayer from "./SongPlayer";
 
 function SongsContainer() {
   const songs = useSelector((state)=> {
@@ -63,6 +64,7 @@ function SongsContainer() {
           color="primary"
         />
       </Stack>
+      <SongPlayer />
     </div>
   );
 }
