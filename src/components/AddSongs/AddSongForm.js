@@ -1,6 +1,10 @@
 import { styled } from "@mui/material/styles";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { Button } from "@mui/material";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../../utils/states/handlePopupSlice";
+import { addSong } from "../../utils/states/addSongSlice";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -15,6 +19,28 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 function AddSongForm() {
+  const [songName, setSongName] = useState("");
+  const [songLink, setSongLink] = useState("");
+  const [songSource, setSongSource] = useState("");
+  const [songThumbnail, setSongThumbnail] = useState(null);
+  const dispatch = useDispatch();
+
+  const handleClose = () => {
+    dispatch(closeMenu());
+  };
+
+  const handleAddSong = (e) => {
+    dispatch(
+      addSong({
+      name: songName,
+      link: songLink,
+      source: songSource,
+      image: songThumbnail,
+    }));
+
+    dispatch(closeMenu())
+  };
+
   return (
     <div className="w-[100%] h-[75%] flex flex-col justify-between p-[10px]">
       <div className="songname">
@@ -25,8 +51,8 @@ function AddSongForm() {
           className="w-full h-[60%]  flex flex-col justify-between p-1"
           type="text"
           placeholder="Enter Song Name"
-          // value={songName}
-          // onChange={(e) => setSongName(e.target.value)}
+          value={songName}
+          onChange={(e) => setSongName(e.target.value)}
         />
       </div>
       <div className="songname">
@@ -37,8 +63,8 @@ function AddSongForm() {
           className="w-full h-[60%] flex flex-col justify-between p-1"
           type="text"
           placeholder="Enter Song Link"
-          // value={songName}
-          // onChange={(e) => setSongName(e.target.value)}
+          value={songLink}
+          onChange={(e) => setSongLink(e.target.value)}
         />
       </div>
 
@@ -49,9 +75,10 @@ function AddSongForm() {
         <input
           type="text"
           className="w-full h-[60%]  flex flex-col justify-between p-1"
-          // onChange={(e) => {
-          //   setSource(e.target.value);
-          // }}
+          onChange={(e) => {
+            setSongSource(e.target.value);
+          }}
+          value={songSource}
           placeholder="Source Song "
         />
       </div>
@@ -63,13 +90,22 @@ function AddSongForm() {
                 </label> */}
         <Button
           component="label"
-          // variant=""
           sx={{
             border: 1,
             borderColor: "black",
             text: "black",
           }}
           startIcon={<FileUploadIcon />}
+          onChange={(e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              setSongThumbnail(reader.result);
+            };
+            if (file) {
+              reader.readAsDataURL(file);
+            }
+          }}
         >
           Click to Upload Profile Thumbnail
           <VisuallyHiddenInput type="file" />
@@ -79,6 +115,21 @@ function AddSongForm() {
         *Image has to be of aspect ratio 1:1 with a size of 3000 pixels x 3000
         pixels
       </p>
+      <div className="w-full h-px bg-gray-300"></div>
+      <div className="w-full h-1/6 flex justify-end items-center p-2">
+        <button
+          onClick={handleClose}
+          className="w-20 h-8 border border-gray-300 bg-white text-sm font-medium"
+        >
+          Cancel
+        </button>
+        <button
+          className="w-32 h-8 bg-blue-500 border border-blue-500 text-white text-sm font-medium ml-2"
+          onClick={handleAddSong}
+        >
+          Add Song
+        </button>
+      </div>
     </div>
   );
 }

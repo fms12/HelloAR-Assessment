@@ -50,26 +50,8 @@ function AddSong() {
             </div>
 
             <div className="w-[100%] h-[1px] bg-[#F0F0F0] m-auto p-0"></div>
-
             <AddSongForm />
-            <div className="w-full h-px bg-gray-300"></div>
-
-            <div className="w-full h-1/6 flex justify-end items-center p-2">
-              <button
-                onClick={handleClose}
-                className="w-20 h-8 border border-gray-300 bg-white text-sm font-medium"
-              >
-                Cancel
-              </button>
-              <button
-                className="w-32 h-8 bg-blue-500 border border-blue-500 text-white text-sm font-medium ml-2"
-                // onClick={() => {
-                //   handleAddSong(close);
-                // }}
-              >
-                Add Song
-              </button>
-            </div>
+           
           </div>
         </Box>
       </Modal>
